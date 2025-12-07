@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💖 Happy Birthday Mahi 💖</title>
+<style>
+    @import url('fonts.googleapis.com');
+
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background-color: #fce4ec; /* Light pink background */
+        color: #d32f2f; /* Deep red text color */
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    /* Heart background animation - a 'flower type' of love */
+    .heart-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: -1;
+    }
+
+    .heart {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: rgba(255, 105, 180, 0.7); /* Hot pink */
+        transform: rotate(-45deg);
+        animation: floatAndFade 10s infinite ease-in;
+    }
+
+    .heart::before, .heart::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: rgba(255, 105, 180, 0.7);
+        border-radius: 50%;
+    }
+
+    .heart::before {
+        top: -10px;
+        left: 0;
+    }
+
+    .heart::after {
+        top: 0;
+        left: 10px;
+    }
+
+    @keyframes floatAndFade {
+        0% { opacity: 0; transform: translateY(100vh) rotate(0deg); }
+        10% { opacity: 1; }
+        100% { opacity: 0; transform: translateY(-10vh) rotate(720deg); }
+    }
+    
+    /* End of heart background animation */
+
+    section {
+        height: 100vh;
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white overlay for readability */
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-family: 'Pacifico', cursive;
+        font-size: 60px;
+        color: #e91e63; /* Pink color */
+        animation: pop 1.5s ease-in-out infinite alternate;
+        margin-bottom: 0;
+    }
+
+    @keyframes pop {
+        0% { transform: scale(1); }
+        100% { transform: scale(1.1); }
+    }
+
+    .line {
+        font-size: 22px;
+        margin-top: 10px;
+        animation: fade 3s ease-in-out infinite alternate;
+        color: #4a4a4a;
+    }
+
+    @keyframes fade {
+        0% { opacity: 0.7; }
+        100% { opacity: 1; }
+    }
+
+    .btn {
+        margin-top: 30px;
+        padding: 12px 30px;
+        font-size: 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 50px; /* Pill shape */
+        background: #e91e63;
+        color: white;
+        font-weight: bold;
+        transition: 0.3s;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .btn:hover {
+        transform: scale(1.05);
+        background: #d81b60;
+    }
+
+    /* Game Section Styling */
+    #gameSection {
+        background-color: rgba(255, 255, 255, 0.85);
+        padding: 60px 20px;
+    }
+
+    .game-container {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 2px solid #e91e63;
+        border-radius: 15px;
+        background-color: white;
+    }
+
+    #meterBar {
+        width: 100%;
+        height: 30px;
+        background-color: #f0f0f0;
+        border-radius: 15px;
+        overflow: hidden;
+        margin-bottom: 15px;
+    }
+
+    #meterFill {
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(to right, #ff9a9e, #fecfef);
+        transition: width 0.5s ease-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #d32f2f;
+        font-weight: bold;
+        font-size: 14px;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Heart Background Generator -->
+<div class="heart-bg" id="heart-container"></div>
+
+<!-- PAGE 1 -->
+<section>
+    <h1>🌸 Happy Birthday Mahi! 🌸</h1>
+    <p class="line">Wishing you a day filled with joy, laughter, and wonderful memories.</p>
+    <p class="line">May this year bring you endless happiness and success.</p>
+
+    <a href="#page2"><button class="btn">Next 🎉</button></a>
+</section>
+
+<!-- PAGE 2 -->
+<section id="page2">
+    <h1 style="font-size:50px;">✨ Your Special Day ✨</h1>
+    <p class="line">Enjoy every moment, smile a little extra today.</p>
+    <p class="line">Because this day belongs only to YOU!</p>
+
+    <a href="#page3"><button class="btn">Next 💙</button></a>
+</section>
+
+<!-- PAGE 3 - The Game Section -->
+<section id="page3" class="gameSection">
+    <h1 style="font-size:50px;">💕 How much do I love you? 💕</h1>
+    <p class="line">Play this little game to find out!</p>
+
+    <div class="game-container">
+        <p>Click the button below to fill the "Love Meter"!</p>
+        <div id="meterBar">
+            <div id="meterFill">0%</div>
+        </div>
+        <button class="btn" onclick="increaseLove()">Click for Love!</button>
+        <p id="resultMessage" style="margin-top: 15px; font-weight: bold; color: #e91e63;"></p>
+    </div>
+
+    <a href="#page4"><button class="btn">Next 🌟</button></a>
+</section>
+
+<!-- PAGE 4 -->
+<section id="page4">
+    <h1 style="font-size:55px;">🎊 Celebrate Yourself 🎊</h1>
+    <p class="line">Be proud, be joyful — today is your moment.</p>
+    <p class="line">Once again... Happy Birthday, Mahi! 💙</p>
+</section>
+
+<script>
+    // JavaScript for the Heart Background Animation (creating 30 hearts dynamically)
+    const container = document.getElementById('heart-container');
+    for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = Math.random() * 5 + 5 + 's'; // between 5 and 10 seconds
+        heart.style.opacity = Math.random();
+        heart.style.transform = `scale(${Math.random()})`;
+        container.appendChild(heart);
+    }
+
+    // JavaScript for the "Love Meter" game
+    let loveLevel = 0;
+    const meterFill = document.getElementById('meterFill');
+    const resultMessage = document.getElementById('resultMessage');
+
+    function increaseLove() {
+        if (loveLevel < 100) {
+            // Increase randomly between 5 and 15
+            loveLevel += Math.floor(Math.random() * 11) + 5; 
+            if (loveLevel > 100) loveLevel = 100;
+            updateMeter();
+        }
+
+        if (loveLevel === 100) {
+            resultMessage.textContent = "It's 100%! My love for you is endless! ❤️";
+        }
+    }
+
+    function updateMeter() {
+        meterFill.style.width = loveLevel + '%';
+        meterFill.textContent = loveLevel + '%';
+        if (loveLevel > 50) {
+            meterFill.style.backgroundColor = '#e91e63'; // Deeper pink when over half
+        }
+    }
+</script>
+
+</body>
+</html>
